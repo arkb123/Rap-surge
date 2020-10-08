@@ -1,0 +1,164 @@
+<div class="container">
+        <div class="flex-container center">
+          <div id="temp-box">
+            <div class="nameBox">
+              <h3 id="rapper-name">Name</h3>
+              <div class="tinybox">
+                <img id="arrow" src="/img/up.png" alt="">
+              </div>
+            </div>
+            <div class="picBox pb">
+            <img
+              id="picture"
+              src="/img/dude.jpg"
+              alt=""
+            />
+          </div>
+          </div>
+          <div class="picBox" id="infoBox">
+            <ul id="info">
+              <li id="name">name:</li>
+              <li id="age">age:</li>
+              <li id="from">from:</li>
+              <li id="label">label:</li>
+              <li id="similar-sound">similar-sound:</li>
+              <li id="songs">hits: </li>
+                <ol id="song-names">
+                  <li id="song1">song name</li>
+                  <li id="song2">song name</li>
+                  <li id="song3">song name</li>
+                </ol>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      function makeNewDiv(rapper) {
+  let box = document.createElement("div");
+  box.setAttribute("class", "container");
+  //
+
+  let temp_box = document.createElement("div");
+  temp_box.setAttribute("id", "temp-box");
+
+  let nameboxx = document.createElement("div");
+  nameboxx.classList.add("nameBox");
+  temp_box.appendChild(nameboxx);
+  //
+  let rapperName = document.createElement("h3");
+  rapperName.setAttribute("id", "rapper-name");
+  rapperName.textContent = rapper.name;
+  nameboxx.appendChild(rapperName);
+  //
+  let tiny_box = document.createElement("div");
+  tiny_box.setAttribute("class", "tinybox");
+  nameboxx.appendChild(tiny_box);
+  //
+  let arrowImg = document.createElement("img");
+  arrowImg.setAttribute("id", "arrow");
+
+  //algorith to get the percentage
+
+  let percent = rapper.preRanking / rapper.ranking;
+  percent = Math.round(10 * percent) / 10;
+
+  let percentage = document.createElement("h6");
+  percentage.setAttribute("class", "percentage");
+  //
+  if (rapper.ranking > rapper.preRanking) {
+    percent = "+" + percent + "%";
+    percentage.classList.add("percentage-pos");
+  } else {
+    percent = "-" + percent + "%";
+    percentage.classList.add("percentage-neg");
+  }
+  percentage.innerText = percent;
+  nameboxx.appendChild(percentage);
+
+  //Used for the arrow icon next to rapper img
+  // Update later
+  if (rapper.ranking > rapper.preRanking) {
+    arrowImg.src = upArrow;
+  } else {
+    arrowImg.src = downArrow;
+  }
+
+  tiny_box.appendChild(arrowImg);
+  //
+  let flexContainer = document.createElement("div");
+  flexContainer.setAttribute("class", "flex-container center");
+  flexContainer.appendChild(temp_box);
+  box.appendChild(flexContainer);
+  //
+  let pic_box = document.createElement("div");
+  pic_box.setAttribute("class", "picBox pb");
+  let picture = document.createElement("img");
+  picture.src = rapper.img;
+  picture.setAttribute("id", "picture");
+  pic_box.appendChild(picture);
+  temp_box.appendChild(pic_box);
+  //
+  let infoBox = document.createElement("div");
+  infoBox.setAttribute("class", "picBox");
+  infoBox.setAttribute("id", "infoBox");
+  flexContainer.appendChild(infoBox);
+  //
+  let list = document.createElement("ul");
+  list.setAttribute("id", "info");
+  let li_name = document.createElement("li");
+  li_name.setAttribute("id", "name");
+  li_name.innerText = "name: " + rapper.name;
+  list.appendChild(li_name);
+  let li_age = document.createElement("li");
+  li_age.setAttribute("id", "age");
+  li_age.innerText = "age: " + rapper.age;
+  list.appendChild(li_age);
+  let li_from = document.createElement("li");
+  li_from.setAttribute("id", "from");
+  li_from.innerText = "from: " + rapper.from;
+  list.appendChild(li_from);
+  let li_label = document.createElement("li");
+  li_label.setAttribute("id", "label");
+  li_label.innerText = "label: " + rapper.label;
+  list.appendChild(li_label);
+  let li_similarSound = document.createElement("li");
+  li_similarSound.setAttribute("id", "similar-sound");
+  li_similarSound.innerText = "potential: " + rapper.similarSound;
+  list.appendChild(li_similarSound);
+  let li_hits = document.createElement("li");
+  li_hits.setAttribute("id", "songs");
+  li_hits.innerText = "hits: ";
+  //
+  let ol_list = document.createElement("ol");
+  ol_list.setAttribute("id", "song-names");
+  let li_song1 = document.createElement("li");
+  li_song1.setAttribute("id", "song1");
+  li_song1.innerText = rapper.song1;
+  ol_list.appendChild(li_song1);
+  let li_song2 = document.createElement("li");
+  li_song2.setAttribute("id", "song2");
+  li_song2.innerText = rapper.song2;
+  ol_list.appendChild(li_song2);
+  let li_song3 = document.createElement("li");
+  li_song3.setAttribute("id", "song3");
+  li_song3.innerText = rapper.song3;
+  ol_list.appendChild(li_song3);
+  li_hits.appendChild(ol_list);
+  list.appendChild(li_hits);
+
+  //
+
+  infoBox.appendChild(list);
+  document.body.appendChild(box);
+}
