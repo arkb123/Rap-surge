@@ -290,6 +290,7 @@ header {
     width: 220px;
     min-width: 0;
     height: 30vh;
+    padding-bottom: 52px;
   }
   .pb {
     margin-left: 20px;
@@ -308,6 +309,7 @@ header {
     width: 240px;
     position: relative;
     left: 10px;
+    
   }
   .tinybox {
     height: 50px;
@@ -412,5 +414,19 @@ header {
   #first-word{
   font-size: 14px;
   font-weight: 100;
+}
+.gradCap{
+  padding-left: 15px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gradCap img{
+  width: 100%;
+}
+.routes{
+  width: 80%;
+  margin: auto;
 }
 }

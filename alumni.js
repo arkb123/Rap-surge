@@ -18,7 +18,7 @@ function makeNewDiv(rapper) {
             <div id="temp-box">
                 <div class="nameBox">
                     <h3 id="rapper-name">${rapper.name}</h3>
-                    <div class="tinybox-2"><img src=${gradCap}></div>
+                    <div class="tinybox-2 gradCap"><img src=${gradCap}></div>
                 </div>
                 <div class="picBox pb"><img src="${rapper.img}" id="picture"></div>
             </div>
