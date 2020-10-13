@@ -274,6 +274,13 @@ header {
   object-fit: cover;
 }
 @media (max-width: 768px) {
+  .flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  margin-left: 15px;
+}
   .container {
     width: 100%;
     overflow: hidden;

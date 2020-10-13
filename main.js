@@ -91,7 +91,7 @@ function upDate(myList) {
   for (var i = 0; i < myList.length; i++) {
     makeNewDiv(myList[i]);
   }
-  let test = (document.querySelectorAll("#arrow")[0].src = "/img/crown.png");
+  let test = (document.querySelectorAll("#arrow")[0].src = "img/crown.png");
 }
 
 
