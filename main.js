@@ -15,17 +15,21 @@ function makeNewDiv(rapper) {
   }else{
     finalImg = upArrow;
   }
+
+  let temp = rapper.ranking - rapper.preRanking;
+  let percent = (temp/rapper.preRanking) * 100;
+  percent = Math.round(10 * percent) / 10;
   
-  let percent = rapper.preRanking / rapper.ranking;
-  percent = Math.round(100 * percent) / 10;
-  percent = percent * 2;
+  // let percent = rapper.preRanking / rapper.ranking;
+  // percent = Math.round(100 * percent) / 10;
+  // percent = percent * 2;
 
   let percentSymbol, percentClass;
   if(rapper.ranking > rapper.preRanking) {
     percentSymbol = "+";
     percentClass = "percentage-pos";
   }else{
-    percentSymbol = "-";
+    percentSymbol = "";
     percentClass = "percentage-neg";
   }
 
